@@ -3,28 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Assignment 08</title>
+
+    <style>
+        body {
+            background: #e8e8e8;
+            color: deepskyblue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+
+        section {
+            width: 100vw;
+            height: fit-content;
+
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .man {
+            height: 100px;
+            aspect-ratio: 1/1;
+            background-image: url('assets/gifs/3698776vsk644qxod.gif');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .house {
+            width: 200px;
+            height: 100px;
+            background-image: url('assets/gifs/32975cfb902f9f53b111cf70da9231d8.gif');
+            background-position: center;
+            background-size: cover;
+            background-color: #e8e8e8;
+        }
+
+        section>div>div {
+            display: flex;
+            /*//align-content: center;*/
+            justify-content: space-around;
+            align-items: center;
+        }
+
+    </style>
 </head>
 <body>
 
     <section>
-        <div id="d1">
-            <div id="value1">A</div>
-        </div>
-        <div id="d2">
-            <div id="value2">B</div>
-        </div>
-        <div id="d3">
-            <div id="value3">C</div>
-        </div>
-        <div id="d4">
-            <div id="value4">D</div>
-        </div>
-        <div id="d5">
-            <div id="value5">E</div>
-        </div>
-        <div id="d6">
-            <div id="value6">F</div>
-        </div>
+        <div class="man"></div>
+
+        <div class="letter" id="value1">A</div>
+
+        <div class="man"></div>
+
+        <div class="letter" id="value2">B</div>
+
+        <div class="man"></div>
+
+        <div class="letter" id="value3">C</div>
+
+        <div class="man"></div>
+
+        <div class="letter" id="value4">D</div>
+
+        <div class="man"></div>
+
+        <div class="letter" id="value5">E</div>
+
+        <div class="man"></div>
+
+        <div class="letter" id="value6">F</div>
+
+        <div class="house"></div>
 
     </section>
 
@@ -37,6 +88,38 @@
 
 
 <script src="assets/lib/jquery-3.7.1.min.js"></script>
+
+    <script>
+
+        let array = ["A", "B", "C", "D", "E", "F"]
+        let myInterval = null;
+
+        function replaceValue() {
+
+            // change the array
+            let lastValue = array.pop();
+            array.unshift(lastValue);
+
+            // update the elements
+            $("#value1").text(array[0]);
+            $("#value2").text(array[1]);
+            $("#value3").text(array[2]);
+            $("#value4").text(array[3]);
+            $("#value5").text(array[4]);
+            $("#value6").text(array[5]);
+
+        }
+
+
+        $("#start_btn").on('click', () => {
+            myInterval = setInterval(replaceValue, 500);
+        });
+
+        $("#stop_btn").on('click', () => {
+            clearInterval(myInterval);
+        });
+
+    </script>
 
 </body>
 </html>
