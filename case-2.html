@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 09</title>
+    <link rel="stylesheet" href="assets/normalize.css">
+
+    <style>
+        #content {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+            background: #36474f;
+        }
+
+        #upper {
+            grid-column: 1/2;
+            grid-row: 1/2;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: flex-end;
+
+        }
+
+        #light {
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+        }
+
+        .lights {
+            width: 60px;
+            height: 30px;
+            background: white;
+            border: 2px solid #36474f;
+            border-radius: 5px;
+        }
+
+        #button {
+            grid-column: 1/2;
+            grid-row: 2/3;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+
+        .line {
+            width: 36%;
+            height: 1px;
+            background: white;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: white;
+            margin: 0;
+            margin-bottom: 70px;
+        }
+
+        #up {
+            width: 36%;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        #down {
+            width: 36%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<section id="content">
+
+    <div id="upper">
+
+        <h1>Java Script Queue</h1>
+
+        <div id="up">
+            <div id="value1" class="lights"></div>
+        </div>
+
+        <div class="line"></div>
+
+        <div id="light">
+
+
+            <div id="value2" class="lights"></div>
+            <div id="value3" class="lights"></div>
+            <div id="value4" class="lights"></div>
+            <div id="value5" class="lights"></div>
+
+        </div>
+
+        <div class="line"></div>
+
+        <div id="down">
+            <div id="value6" class="lights"></div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div id="button">
+        <button id="start_btn">Start</button>
+        <button id="stop_btn">Stop</button>
+    </div>
+</section>
+
+
+<script src="assets/lib/jquery-3.7.1.min.js"></script>
+
+<script>
+    let array = ["red", "green", "blue", "yellow", "lightpink", "fuchsia"]
+    let myInterval = null;
+
+    function replaceValue() {
+
+        // change the array
+        let lastValue = array.pop();
+        array.unshift(lastValue);
+
+        // update the elements
+        $("#value1").css('background' , array[0]);
+        $("#value2").css('background' , array[1]);
+        $("#value3").css('background' , array[2]);
+        $("#value4").css('background' , array[3]);
+        $("#value5").css('background' , array[4]);
+        $("#value6").css('background' , array[5]);
+
+    }
+
+    $("#start_btn").on('click', () => {
+        myInterval = setInterval(replaceValue, 500);
+    });
+
+    $("#stop_btn").on('click', () => {
+        clearInterval(myInterval);
+    });
+
+</script>
+
+</body>
+</html>
