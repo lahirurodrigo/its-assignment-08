@@ -10,10 +10,45 @@
             color: deepskyblue;
             font-size: 20px;
             font-weight: bold;
+            overflow: hidden;
+        }
+
+        #content {
+            width: 100vw;
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
+
+        #upper {
+            grid-column: 1/2;
+            grid-row: 1/2;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: flex-end;
+
+        }
+
+        #button {
+            grid-column: 1/2;
+            grid-row: 2/3;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+        }
+
+        button {
+            margin-top: 10px;
         }
 
 
-        section {
+        #queue {
             width: 100vw;
             height: fit-content;
 
@@ -37,6 +72,7 @@
             background-position: center;
             background-size: cover;
             background-color: #e8e8e8;
+            border-right: 25px solid #e8e8e8;
         }
 
         section>div>div {
@@ -46,44 +82,76 @@
             align-items: center;
         }
 
+        h1 {
+            font-size: 64px;
+            color: #e57373;
+            margin: 0;
+            margin-bottom: 120px;
+        }
+
+        .line {
+            width: 82%;
+            height: 1px;
+            background: gray;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            transform: translate(-120px, -12px);
+        }
+
     </style>
 </head>
 <body>
 
-    <section>
-        <div class="man"></div>
 
-        <div class="letter" id="value1">A</div>
+<section id="content">
 
-        <div class="man"></div>
+    <div id="upper">
 
-        <div class="letter" id="value2">B</div>
+        <h1>JS Que</h1>
 
-        <div class="man"></div>
+        <section id="queue">
+            <div class="man"></div>
 
-        <div class="letter" id="value3">C</div>
+            <div class="letter" id="value1">A</div>
 
-        <div class="man"></div>
+            <div class="man"></div>
 
-        <div class="letter" id="value4">D</div>
+            <div class="letter" id="value2">B</div>
 
-        <div class="man"></div>
+            <div class="man"></div>
 
-        <div class="letter" id="value5">E</div>
+            <div class="letter" id="value3">C</div>
 
-        <div class="man"></div>
+            <div class="man"></div>
 
-        <div class="letter" id="value6">F</div>
+            <div class="letter" id="value4">D</div>
 
-        <div class="house"></div>
+            <div class="man"></div>
 
-    </section>
+            <div class="letter" id="value5">E</div>
 
-<br>
-<br>
+            <div class="man"></div>
 
-<button id="start_btn">Start</button>
-<button id="stop_btn">Stop</button>
+            <div class="letter" id="value6">F</div>
+
+            <div class="house"></div>
+
+        </section>
+
+        <div class="line"></div>
+
+    </div>
+
+
+
+
+
+    <div id="button">
+        <button id="start_btn">Start</button>
+        <button id="stop_btn">Stop</button>
+    </div>
+</section>
+
 
 
 
